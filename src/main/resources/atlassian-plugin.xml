@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+    <resource type="i18n" name="i18n" location="rehabstudioprojecttemplate" />
+    <web-resource key="rehabstudioprojecttemplate-resources" name="rehabstudioprojecttemplate Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <transformation extension="soy">
+            <transformer key="soyTransformer" />
+        </transformation>
+        <resource type="download" name="rehabstudioProjectTemplate.soy.js" location="/soy/rehabstudioProjectTemplate.soy" />
+        <resource type="download" name="images/" location="/images">
+            <param name="content-type" value="image/png; charset=binary" />
+        </resource>
+        <context>atl.general</context>
+        <context>atl.admin</context>
+    </web-resource>
+    <project-blueprint key="rehabstudioprojecttemplate" weight="90">
+        <label key="rehab.project.template.name" />
+        <description key="rehab.project.template.description" />
+        <longDescription key="rehab.project.template.description.long" />
+        <infoPage soy-template="JIRA.Templates.ProjectTemplates.Rehabstudio.renderProjectTemplateExplanation" />
+        <icon location="images/rehab-icon.png" />
+        <backgroundIcon location="images/rehabproject-background.png" />
+        <add-project>
+            <descriptor file="/config/rehabstudioprojecttemplate-config.json" />
+        </add-project>
+    </project-blueprint>
+</atlassian-plugin>

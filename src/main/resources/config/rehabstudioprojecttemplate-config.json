@@ -1,0 +1,92 @@
+{
+    "issue-type-scheme":
+    {
+        "name": "rehab.project.template.issuetype.scheme.name",
+        "description": "rehab.project.template.issuetype.scheme.description",
+        "issue-types": [
+            {
+                "key": "newfeature",
+                "name": "New Feature",
+                "description": "A new feature of the product, which has yet to be developed.",
+                "icon": "/images/icons/newfeature.png",
+                "workflow": "wf1"
+            },
+            {
+                "key": "bug",
+                "name": "Bug",
+                "description": "A problem which impairs or prevents the functions of the product.",
+                "icon": "/images/icons/bug.png",
+                "workflow": "wf1"
+            },
+            {
+                "key": "epic",
+                "name": "Epic",
+                "description": "A problem which impairs or prevents the functions of the product.",
+                "icon": "/images/icons/epic.png",
+                "workflow": "wf1"
+            },
+            {
+                "key": "improvement",
+                "name": "Improvement",
+                "description": "An improvement or enhancement to an existing feature or task.",
+                "icon": "/images/icons/improvement.png",
+                "workflow": "wf1"
+            },
+            {
+                "key": "overtime",
+                "name": "Overtime",
+                "description": "This issue type should be assigned to any overtime tasks",
+                "icon": "/images/icons/sales.png",
+                "workflow": "wf1"
+            },
+            {
+                "key": "qa",
+                "name": "QA",
+                "description": "A task for a QA team member to do",
+                "icon": "/images/icons/documentation.png",
+                "workflow": "wf1"
+            },
+            {
+                "key": "story",
+                "name": "Story",
+                "description": "",
+                "icon": "/images/icons/genericissue.png",
+                "workflow": "wf1"
+            },
+            {
+                "key": "task",
+                "name": "Task",
+                "description": "A task that needs to be done",
+                "icon": "/images/icons/task.png",
+                "workflow": "wf1"
+            },
+            {
+                "key": "subtask",
+                "name": "Sub-task",
+                "description": "The sub-task of the issue",
+                "icon": "/images/icons/subtask_alternate.png",
+                "workflow": "wf1"
+            },
+            {
+                "key": "technicaltask",
+                "name": "Technical task",
+                "description": "A task for devs only - no production time or notes should be made here",
+                "icon": "/images/icons/task_agile.png",
+                "workflow": "wf1"
+            }
+        ]
+    },
+    "workflow-scheme":
+    {
+        "name": "rehab.project.template.workflow.scheme.name",
+        "description": "rehab.project.template.workflow.scheme.description",
+        "default-workflow": "wf1",
+        "workflows": [
+            {
+                "key": "wf1",
+                "name": "rehab.project.template.workflow.wf1.name",
+                "workflow-bundle": "/wfb/rehab-project-workflow.jwb"
+            }
+        ]
+    }
+}
