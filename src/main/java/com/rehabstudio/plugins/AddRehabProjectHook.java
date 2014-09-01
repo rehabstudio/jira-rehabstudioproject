@@ -23,7 +23,7 @@ public class AddRehabProjectHook implements AddProjectHook
     @Override
     public ConfigureResponse configure(final ConfigureData configureData)
     {
-        ConfigureResponse configureResponse = ConfigureResponse.create().setRedirect("/issues/");
+        ConfigureResponse configureResponse = ConfigureResponse.create();
  
         return configureResponse;
     }
