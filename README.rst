@@ -3,11 +3,20 @@ jira project plugin
 
 This plugin is designed to create a tailored Workflow and Issue Scheme project template
 
+
+Requirements
+------------
+`Atlas SDK <https://www.google.co.uk/search?q=download+atlas+sdk&oq=download+atlas+sdk&aqs=chrome..69i57j0.3465j0j4&sourceid=chrome&es_sm=93&ie=UTF-8>`_.
+
+`jira-cli-4.0.0-SNAPSHOT-distribution.zip
+<https://bobswift.atlassian.net/wiki/download/attachments/16285777/jira-cli-4.0.0-SNAPSHOT-distribution.zip?version=16&modificationDate=1409573483826&api=v2>`_.
+
+**note:** you should move `jira-cli-4.0.0-SNAPSHOT-distribution.zip` to `/opt/atlassian/jira-cli/` and modify `/opt/atlassian/jira-cli/jira.sh` to suit your setup
+
 Install
 -------
 
-Simply upload the jar file into the plugin section and go.
-
+This project has been designed to be ran with `atlas-run` / `atlas-debug` etc.
 
 You have successfully created an Atlassian Plugin!
 --------------------------------------------------

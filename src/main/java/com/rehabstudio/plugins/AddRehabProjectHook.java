@@ -28,7 +28,7 @@ public class AddRehabProjectHook implements AddProjectHook
     @Override
     public ConfigureResponse configure (final ConfigureData configureData)
     {
-        ConfigureResponse configureResponse = ConfigureResponse.create();
+        String sId = "?";
 
         try {
             String cmd =    "/opt/atlassian/jira-cli/jira.sh " +
@@ -46,6 +46,7 @@ public class AddRehabProjectHook implements AddProjectHook
             String s = null;
             while ((s = stdInput.readLine()) != null) {
                 System.out.println(s);
+                sId = s.replaceAll("^.*?([0-9]+)$", "$1");
             }
 
             // errors
@@ -56,6 +57,8 @@ public class AddRehabProjectHook implements AddProjectHook
         } catch (Exception e) {
             System.out.println(e);
         }
+
+        ConfigureResponse configureResponse = ConfigureResponse.create().setRedirect("/secure/RapidBoard.jspa?rapidView=" + sId);
 
         return configureResponse;
     }
