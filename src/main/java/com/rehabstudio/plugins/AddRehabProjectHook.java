@@ -1,5 +1,5 @@
 package com.rehabstudio.plugins;
- 
+
 import com.atlassian.jira.blueprint.api.AddProjectHook;
 import com.atlassian.jira.blueprint.api.ConfigureData;
 import com.atlassian.jira.blueprint.api.ConfigureResponse;
