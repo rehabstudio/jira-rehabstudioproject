@@ -19,9 +19,6 @@ public class AddRehabProjectHook implements AddProjectHook
     public ValidateResponse validate (final ValidateData validateData)
     {
         ValidateResponse validateResponse = ValidateResponse.create();
-
-        System.out.println("ERK! A");
-
         return validateResponse;
     }
  
@@ -42,11 +39,10 @@ public class AddRehabProjectHook implements AddProjectHook
             BufferedReader stdError = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
 
             // output
-            System.out.println("Here is the standard output of the command:\n");
             String s = null;
             while ((s = stdInput.readLine()) != null) {
                 System.out.println(s);
-                sId = s.replaceAll("^.*?([0-9]+)$", "$1");
+                sId = s.replaceAll("^.*?([0-9]+).$", "$1");
             }
 
             // errors
