@@ -1,8 +1,8 @@
 {
     "issue-type-scheme":
     {
-        "name": "rehab.project.template.issuetype.scheme.name",
-        "description": "rehab.project.template.issuetype.scheme.description",
+        "name": "rehabstudio Template Issue Type Scheme",
+        "description": "The issue type scheme suited to the default rehabstudio Template Workflow",
         "issue-types": [
             {
                 "key": "newfeature",
@@ -78,13 +78,13 @@
     },
     "workflow-scheme":
     {
-        "name": "rehab.project.template.workflow.scheme.name",
-        "description": "rehab.project.template.workflow.scheme.description",
+        "name": "rehabstudio Template Workflow Scheme",
+        "description": "The default workflow for rehabstudio",
         "default-workflow": "wf1",
         "workflows": [
             {
                 "key": "wf1",
-                "name": "rehab.project.template.workflow.wf1.name",
+                "name": "rehabstudio standard",
                 "workflow-bundle": "/wfb/rehab-project-workflow.jwb"
             }
         ]

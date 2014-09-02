@@ -5,26 +5,77 @@ import com.atlassian.jira.blueprint.api.ConfigureData;
 import com.atlassian.jira.blueprint.api.ConfigureResponse;
 import com.atlassian.jira.blueprint.api.ValidateData;
 import com.atlassian.jira.blueprint.api.ValidateResponse;
- 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import java.io.*;
+import java.util.*;
+
 public class AddRehabProjectHook implements AddProjectHook
 {
+
+    private static final Logger log = LogManager.getLogger("atlassian.plugin");
+
     @Override
-    public ValidateResponse validate(final ValidateData validateData)
+    public ValidateResponse validate (final ValidateData validateData)
     {
         ValidateResponse validateResponse = ValidateResponse.create();
-        if (validateData.projectKey().equals("TEST"))
-        {
-            validateResponse.addErrorMessage("Invalid Project Key");
-        }
- 
+
+        System.out.println("ERK! A");
+
         return validateResponse;
     }
  
     @Override
-    public ConfigureResponse configure(final ConfigureData configureData)
+    public ConfigureResponse configure (final ConfigureData configureData)
     {
         ConfigureResponse configureResponse = ConfigureResponse.create();
- 
+
+        try {
+             System.out.println("RUNNING");
+            // start up the command in child process
+            String cmd =    "/opt/atlassian/jira-cli/jira.sh " +
+                            "--action createBoard " +
+                            "--name " + configureData.project().getKey() + "-board " +
+                            "--type scrum " + 
+                            "--project " + configureData.project().getKey();
+            Runtime rt = Runtime.getRuntime();
+            Process proc = rt.exec(cmd);
+            BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+            BufferedReader stdError = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
+
+            // output
+            System.out.println("Here is the standard output of the command:\n");
+            String s = null;
+            while ((s = stdInput.readLine()) != null) {
+                System.out.println(s);
+            }
+
+            // errors
+            while ((s = stdError.readLine()) != null) {
+                System.out.println(s);
+            }
+
+        } catch (Exception e) { // exception thrown
+
+            System.out.println(e);
+
+        }
+        /*
+        try {
+            Process p = Runtime.getRuntime().exec(
+                "/opt/atlassian/jira-cli/jira.sh " +
+                "--action createBoard " +
+                "--name \"" + configureData.project().getKey() + "\" " +
+                "--type \"scrum\" " + 
+                "--project \"" + configureData.project().getKey() + "\""
+            );
+            System.out.println("ERK! D");
+            System.out.println(p);
+        } catch(IOException e) {
+            System.out.println("ERK! IOException:");
+            System.out.println(e);
+        }
+        */
         return configureResponse;
     }
 }

@@ -32,6 +32,12 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>com.atlassian.jira.plugins</groupId>
+            <artifactId>jira-greenhopper-plugin</artifactId>
+            <version>6.3.13.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.10</version>
@@ -62,7 +68,7 @@
     </build>
 
     <properties>
-        <jira.version>6.3.4</jira.version>
+        <jira.version>6.1.7</jira.version>
         <amps.version>5.0.4</amps.version>
         <plugin.testrunner.version>1.2.0</plugin.testrunner.version>
 		<!-- TestKit version 5.x for JIRA 5.x, 6.x for JIRA 6.x -->

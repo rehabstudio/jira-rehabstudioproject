@@ -28,6 +28,7 @@
         <icon location="images/rehab-icon.png" />
         <backgroundIcon location="images/rehabproject-background.png" />
         <add-project>
+            <hook class="com.rehabstudio.plugins.AddRehabProjectHook"/>
             <descriptor file="/config/rehabstudioprojecttemplate-config.json" />
         </add-project>
     </project-blueprint>
