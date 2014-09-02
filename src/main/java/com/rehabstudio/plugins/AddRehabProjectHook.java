@@ -42,12 +42,13 @@ public class AddRehabProjectHook implements AddProjectHook
             String s = null;
             while ((s = stdInput.readLine()) != null) {
                 System.out.println(s);
+                // A bit hacky - seek cleaner method
                 sId = s.replaceAll("^.*?([0-9]+).$", "$1");
             }
 
             // errors
             while ((s = stdError.readLine()) != null) {
-                System.out.println(s);
+                System.out.println("[ERROR]: " + s);
             }
 
         } catch (Exception e) {

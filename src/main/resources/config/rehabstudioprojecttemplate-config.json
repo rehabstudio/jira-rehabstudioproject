@@ -84,8 +84,8 @@
         "workflows": [
             {
                 "key": "wf1",
-                "name": "rehabstudio standard",
-                "workflow-bundle": "/wfb/rehab-project-workflow.jwb"
+                "name": "rehabstudio plugin workflow",
+                "workflow-bundle": "/wfb/rehabstudiopluginworkflow.jwb"
             }
         ]
     }
