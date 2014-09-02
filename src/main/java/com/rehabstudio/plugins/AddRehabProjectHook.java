@@ -31,8 +31,6 @@ public class AddRehabProjectHook implements AddProjectHook
         ConfigureResponse configureResponse = ConfigureResponse.create();
 
         try {
-             System.out.println("RUNNING");
-            // start up the command in child process
             String cmd =    "/opt/atlassian/jira-cli/jira.sh " +
                             "--action createBoard " +
                             "--name " + configureData.project().getKey() + "-board " +
@@ -55,27 +53,10 @@ public class AddRehabProjectHook implements AddProjectHook
                 System.out.println(s);
             }
 
-        } catch (Exception e) { // exception thrown
-
-            System.out.println(e);
-
-        }
-        /*
-        try {
-            Process p = Runtime.getRuntime().exec(
-                "/opt/atlassian/jira-cli/jira.sh " +
-                "--action createBoard " +
-                "--name \"" + configureData.project().getKey() + "\" " +
-                "--type \"scrum\" " + 
-                "--project \"" + configureData.project().getKey() + "\""
-            );
-            System.out.println("ERK! D");
-            System.out.println(p);
-        } catch(IOException e) {
-            System.out.println("ERK! IOException:");
+        } catch (Exception e) {
             System.out.println(e);
         }
-        */
+
         return configureResponse;
     }
 }
